@@ -2,7 +2,7 @@ package plugin
 
 // Config configures the plugin service.
 type Config struct {
-	Address string `mapstructure:"address"`
+	Address string `mapstructure:"addr"`
 }
 
 // InitDefaults for the plugin config
