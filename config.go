@@ -1,4 +1,4 @@
-package pubsubjobs
+package plugin
 
 // GlobalCfg configures the plugin service.
 type GlobalCfg struct {

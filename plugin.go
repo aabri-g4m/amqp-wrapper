@@ -1,27 +1,29 @@
 package plugin
 
 import (
-	"github.com/aabri-g4m/rr-pubsub/pubsubjobs"
+	"github.com/spiral/roadrunner/v2/plugins/amqp"
 	"github.com/spiral/roadrunner/v2/plugins/config"
 	"github.com/spiral/roadrunner/v2/plugins/logger"
 )
 
 // PluginName is the name for the plugin as found inside the container
-const PluginName = "rr_pubsub"
+const PluginName = "amqp-wrapper"
 
 // Plugin is the structure that will be initiated as per endure.Container interface
 type Plugin struct {
-	logger   logger.Logger
-	cfg      config.Configurer
-	localCfg pubsubjobs.Config
+	logger     logger.Logger
+	cfg        config.Configurer
+	localCfg   Config
+	amqpPlugin *amqp.Plugin
 }
 
 // Init initiates the plugin with any injected services implementing endure.Container, returning an error if the
 // plugin fails to start, if the error is of type errors.Disabled then the plugin will not be active
-func (p *Plugin) Init(cfg config.Configurer, logger logger.Logger) error {
+func (p *Plugin) Init(cfg config.Configurer, logger logger.Logger, amqpPlugin *amqp.Plugin) error {
 	p.logger = logger
 	p.cfg = cfg
 	p.localCfg.InitDefaults()
+	p.amqpPlugin = amqpPlugin
 	return nil
 }
 
@@ -30,4 +32,6 @@ func (p *Plugin) Name() string {
 	return PluginName
 }
 
-func (p *Plugin) Available() {}
+func (p *Plugin) Available() {
+
+}

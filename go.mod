@@ -1,4 +1,4 @@
-module github.com/aabri-g4m/rr-pubsub
+module github.com/aabri-g4m/amqp-wrapper
 
 go 1.17
 

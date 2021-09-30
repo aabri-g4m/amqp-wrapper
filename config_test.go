@@ -1,4 +1,4 @@
-package pubsubjobs
+package plugin
 
 import (
 	"testing"
