@@ -1,4 +1,4 @@
-package plugin
+package pubsubjobs
 
 import (
 	"testing"
@@ -7,9 +7,9 @@ import (
 )
 
 func TestConfigInitDefaults(t *testing.T) {
-	cfg := Config{}
+	cfg := GlobalCfg{}
 
 	cfg.InitDefaults()
 
-	assert.Equal(t, "foobar", cfg.Value)
+	assert.Equal(t, "tcp://localhost:8088", cfg.Addr)
 }
