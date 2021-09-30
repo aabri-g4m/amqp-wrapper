@@ -1,6 +1,7 @@
 package plugin
 
 import (
+	"fmt"
 	"github.com/spiral/roadrunner/v2/plugins/amqp"
 	"github.com/spiral/roadrunner/v2/plugins/config"
 	"github.com/spiral/roadrunner/v2/plugins/logger"
@@ -24,6 +25,7 @@ func (p *Plugin) Init(cfg config.Configurer, logger logger.Logger, amqpPlugin *a
 	p.cfg = cfg
 	p.localCfg.InitDefaults()
 	p.amqpPlugin = amqpPlugin
+	fmt.Println("hello")
 	return nil
 }
 
