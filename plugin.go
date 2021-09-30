@@ -13,7 +13,7 @@ const PluginName = "amqp-wrapper"
 type Plugin struct {
 	logger     logger.Logger
 	cfg        config.Configurer
-	localCfg   Config
+	localCfg   GlobalCfg
 	amqpPlugin *amqp.Plugin
 }
 
