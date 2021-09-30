@@ -1,7 +1,6 @@
 package plugin
 
 import (
-	"github.com/spiral/roadrunner/v2/plugins/amqp"
 	"github.com/spiral/roadrunner/v2/plugins/config"
 	"github.com/spiral/roadrunner/v2/plugins/logger"
 )
@@ -11,19 +10,15 @@ const PluginName = "amqp-wrapper"
 
 // Plugin is the structure that will be initiated as per endure.Container interface
 type Plugin struct {
-	logger     logger.Logger
-	cfg        config.Configurer
-	localCfg   GlobalCfg
-	amqpPlugin *amqp.Plugin
+	logger logger.Logger
+	cfg    config.Configurer
 }
 
 // Init initiates the plugin with any injected services implementing endure.Container, returning an error if the
 // plugin fails to start, if the error is of type errors.Disabled then the plugin will not be active
-func (p *Plugin) Init(cfg config.Configurer, logger logger.Logger, amqpPlugin *amqp.Plugin) error {
+func (p *Plugin) Init(cfg config.Configurer, logger logger.Logger) error {
 	p.logger = logger
 	p.cfg = cfg
-	p.localCfg.InitDefaults()
-	p.amqpPlugin = amqpPlugin
 	return nil
 }
 
